@@ -47,7 +47,30 @@ export class Tab1Page {
       generos: ['Ação', 'Aventura'],
       pagina: '/rogaipor-nos'
 
-    }
+    },
+
+    {
+      nome: 'The Virtuoso (2021)',
+      lancamento: ' 30/04/2021',
+      duracao: '1h 45m',
+      classificacao: 63,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vXHzO26mJaOt4VO7ZFiM6No5ScT.jpg',
+      generos: ['Ação', 'Crime'],
+      pagina: '/the-virtuoso'
+
+     },
+
+  {
+    nome: 'Raya - O último dragão (2021)',
+    lancamento: ' 04/03/2021',
+    duracao: '1h 47m',
+    classificacao: 82,
+    cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/o2NTWpD6LVf1YyPKTdvcEuHqcJ6.jpg',
+    generos: ['Animação', 'Fantasia'],
+    pagina: '/raya'
+
+  }
+
   ];
 
   constructor(
