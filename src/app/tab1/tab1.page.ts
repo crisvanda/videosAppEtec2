@@ -2,6 +2,8 @@ import { iFilme } from './../models/iFilme.moldel';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { DadosService } from '../services/dados.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -10,7 +12,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  titulo ='Videos';
+  titulo = 'Videos';
 
   listaVideos: iFilme[] = [
     {
@@ -19,7 +21,8 @@ export class Tab1Page {
       duracao: '1h 50m',
       classificacao: 76,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ijvC2w2yANsfgLT3LMu2zFr0fxh.jpg',
-      generos: ['Ação', 'Fantasia', 'Aventura']
+      generos: ['Ação', 'Fantasia', 'Aventura'],
+      pagina: '/mortal-kombat'
 
     },
 
@@ -29,7 +32,8 @@ export class Tab1Page {
       duracao: '4h 2m',
       classificacao: 76,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ArWn6gCi61b3b3hclD2L0LOk66k.jpg',
-      generos: ['Ação', 'Aventura', 'Fantasia', 'Ficção científica']
+      generos: ['Ação', 'Aventura', 'Fantasia', 'Ficção científica'],
+      pagina: '/liga-justica'
 
     },
 
@@ -38,24 +42,38 @@ export class Tab1Page {
       nome: 'Rogai por Nós (2021)',
       lancamento: ' 20/05/2021',
       duracao: '1h 40m',
-      classificacao: 76,
+      classificacao: 71,
       cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zduyzcjyahZtP4fGZE6789h04IM.jpg',
-      generos: ['Ação', 'Aventura', 'Fantasia', 'Ficção científica']
+      generos: ['Ação', 'Aventura'],
+      pagina: '/rogaipor-nos'
 
     }
   ];
 
-  constructor(public alertController: AlertController, public toastController: ToastController) {}
+  constructor(
+    public alertController: AlertController,
+    public toastController: ToastController,
+    public dadosService: DadosService,
+    public route: Router) { }
+
+
+  exibirFilme(filme: iFilme) {
+
+    this.dadosService.guardarDados('filme', filme);
+    this.route.navigateByUrl('/dados-filme');
+  }
+
+
   async exibirAlertaFavorito() {
     const alert = await this.alertController.create({
-  
+
       header: 'Alerta!',
       message: 'Deseja realmente favoritar o filme?',
       buttons: [
         {
           text: 'Cancelar',
           role: 'cancel',
-          
+
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
           }
