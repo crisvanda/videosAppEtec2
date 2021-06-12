@@ -1,3 +1,4 @@
+import { iFilme } from './../models/iFilme.moldel';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
@@ -8,6 +9,41 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+
+  titulo ='Videos';
+
+  listaVideos: iFilme[] = [
+    {
+      nome: 'Mortal Kombat (2021)',
+      lancamento: '15/04/2021',
+      duracao: '1h 50m',
+      classificacao: 76,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ijvC2w2yANsfgLT3LMu2zFr0fxh.jpg',
+      generos: ['Ação', 'Fantasia', 'Aventura']
+
+    },
+
+    {
+      nome: 'Liga da Justiça de Zack Snyder (2021)',
+      lancamento: ' 18/03/2021',
+      duracao: '4h 2m',
+      classificacao: 76,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ArWn6gCi61b3b3hclD2L0LOk66k.jpg',
+      generos: ['Ação', 'Aventura', 'Fantasia', 'Ficção científica']
+
+    },
+
+
+    {
+      nome: 'Rogai por Nós (2021)',
+      lancamento: ' 20/05/2021',
+      duracao: '1h 40m',
+      classificacao: 76,
+      cartaz: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zduyzcjyahZtP4fGZE6789h04IM.jpg',
+      generos: ['Ação', 'Aventura', 'Fantasia', 'Ficção científica']
+
+    }
+  ];
 
   constructor(public alertController: AlertController, public toastController: ToastController) {}
   async exibirAlertaFavorito() {
