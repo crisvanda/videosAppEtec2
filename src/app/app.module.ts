@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { DadossService } from './services/dadoss.service';
 
 registerLocaleData(localePt);
 
@@ -23,7 +24,7 @@ registerLocaleData(localePt);
   HttpClientModule
 ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-  DadosService, 
+  DadosService, DadossService,
   { provide: LOCALE_ID, useValue: 'pt-BR' },
   
   
